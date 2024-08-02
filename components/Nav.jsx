@@ -30,7 +30,7 @@ const Nav = () => {
         />
         <p className="logo_text">Promptopia</p>
       </Link>
-      {/*Mobile Navigation*/}
+      {/*Desktop Navigation*/}
       <div className="sm:flex hidden">
         {isUserLoggedIn ? (
           <div className="flex gap-3 md:gap-5">
@@ -82,10 +82,27 @@ const Nav = () => {
                 <Link
                   href="/profile"
                   className="dropdown_link"
-                  onClick={() => setToggleDropdown((prev) => !prev)}
+                  onClick={() => setToggleDropdown(false)}
                 >
                   My Profile
                 </Link>
+                <Link
+                  href="/create-prompt"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Create Prompt
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                  className="mt-5 w-full black_btn"
+                >
+                  Sign Out
+                </button>
               </div>
             )}
           </div>
